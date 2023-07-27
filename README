@@ -1,0 +1,52 @@
+Bien sûr ! Voici le guide d'installation et d'utilisation modifié avec `backend/main.js` :
+
+## Guide d'installation et d'utilisation
+
+### Prérequis
+- Node.js installé sur votre machine.
+
+### Étape 1 : Cloner le référentiel (repository)
+Clonez le référentiel (repository) depuis GitHub vers votre machine en utilisant la commande suivante :
+
+```bash
+git clone https://github.com/lucas.debize/test_recrutement.git
+```
+
+### Étape 2 : Installation des dépendances
+Accédez au répertoire de votre projet et installez les dépendances en utilisant la commande suivante :
+
+```bash
+cd test_recrutement
+npm install
+```
+
+### Étape 3 : Utilisation des fonctions
+Vous pouvez maintenant utiliser les fonctions pour interagir avec l'API HubSpot dans le fichier `backend/main.js`. Utilisez les fonctions pour récupérer la liste des contacts de HubSpot :
+
+```javascript
+// backend/main.js
+const axios = require('axios');
+const { getContacts } = require('./route/action');
+
+const BASE_URL = 'https://api.hubapi.com';
+
+async function main() {
+  try {
+    const contacts = await getContacts(BASE_URL);
+    console.log('Liste des contacts:', contacts);
+  } catch (error) {
+    console.error('Une erreur est survenue:', error.message);
+  }
+}
+
+main();
+```
+
+### Étape 4 : Exécution du code
+Pour exécuter votre code, utilisez la commande suivante dans le terminal :
+
+```bash
+node backend/main.js
+```
+
+Vous verrez la liste des contacts récupérée depuis l'API HubSpot s'afficher dans la console.

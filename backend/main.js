@@ -6,6 +6,34 @@ const routes_companies = require('./routes/companies');
 const routes_tickets = require('./routes/tickets');
 const routes_transactions = require('./routes/transactions');
 
+function handleRequestError(error) {
+  console.error('In Link :');
+  if (error.response) {
+    const { status, data } = error.response;
+    console.error(`Erreur de requête: ${status} - ${data.message}`);
+    throw new Error(data.message);
+  } else if (error.request) {
+    console.error('Erreur de requête: Aucune réponse du serveur.');
+    throw new Error('Erreur de réseau. Veuillez réessayer.');
+  } else {
+    console.error('Erreur de requête:', error.message);
+    throw new Error('Une erreur est survenue. Veuillez réessayer plus tard.');
+  }
+}
+
+async function linkTransactionToContact(transactionId, contactId) {
+  try {
+    const response = await axios.put(
+      `${BASE_URL}/contacts/v1/contact/vid/${contactId}/associations/transaction/${transactionId}`,
+      {},
+      { headers: { 'Authorization' : `Bearer ${API_KEY}`} }
+    );
+    return response.data;
+  } catch (error) {
+    handleRequestError(error);
+  }
+}
+
 async function main() {
   try {
     const contacts = await routes_contact.getContacts();
