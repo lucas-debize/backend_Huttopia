@@ -1,5 +1,3 @@
-Bien sûr ! Voici le guide d'installation et d'utilisation modifié avec `backend/main.js` :
-
 ## Guide d'installation et d'utilisation
 
 ### Prérequis
@@ -8,20 +6,21 @@ Bien sûr ! Voici le guide d'installation et d'utilisation modifié avec `backen
 ### Étape 1 : Cloner le référentiel (repository)
 Clonez le référentiel (repository) depuis GitHub vers votre machine en utilisant la commande suivante :
 
-```bash
+```
 git clone https://github.com/lucas.debize/test_recrutement.git
+
 ```
 
 ### Étape 2 : Installation des dépendances
 Accédez au répertoire de votre projet et installez les dépendances en utilisant la commande suivante :
 
-```bash
-cd test_recrutement
+```
 npm install
+
 ```
 
 ### Étape 3 : Utilisation des fonctions
-Vous pouvez maintenant utiliser les fonctions pour interagir avec l'API HubSpot dans le fichier `backend/main.js`. Utilisez les fonctions pour récupérer la liste des contacts de HubSpot :
+Vous pouvez maintenant utiliser les fonctions pour interagir avec l'API HubSpot dans le fichier `backend/main.js`. Utilisez les fonctions pour récupérer la liste des contacts de HubSpot, par exemple :
 
 ```javascript
 // backend/main.js
@@ -45,8 +44,9 @@ main();
 ### Étape 4 : Exécution du code
 Pour exécuter votre code, utilisez la commande suivante dans le terminal :
 
-```bash
+```
 node backend/main.js
+
 ```
 
 Vous verrez la liste des contacts récupérée depuis l'API HubSpot s'afficher dans la console.
